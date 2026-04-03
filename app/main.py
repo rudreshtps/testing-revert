@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.routers import health, items
+from app.routers import health, items, users
 
 app = FastAPI(
     title="Sample API",
@@ -10,6 +10,7 @@ app = FastAPI(
 
 app.include_router(health.router, tags=["health"])
 app.include_router(items.router, prefix="/items", tags=["items"])
+app.include_router(users.router, prefix="/users", tags=["users"])
 
 
 @app.get("/")
